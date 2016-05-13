@@ -1,0 +1,54 @@
+.sliderContainerSlide,
+.sliderContainerFade {
+    width: 600px;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 5px solid #dcdcdc;
+    border-radius: 5px;
+}
+
+.sliderContainerSlide img,
+.sliderContainerFade img {
+    width: 600px;
+    height: 300px;
+    position: absolute;
+}
+
+.innerContainer {
+    position: relative;
+}
+
+
+.sliderContainerSlide .innerContainer img.prev {
+    left: -100%;
+}
+
+.sliderContainerSlide .innerContainer img.current {
+    left: 0;
+}
+
+.sliderContainerSlide .innerContainer img.next {
+    left: 100%;
+}
+
+.sliderContainerSlide .innerContainer img.invisible {
+    display: none;
+}
+
+
+.sliderContainerFade .innerContainer img.prev {
+    opacity: 0;
+}
+
+.sliderContainerFade .innerContainer img.current {
+    opacity: 1;
+}
+
+.sliderContainerFade .innerContainer img.next {
+    opacity: 0;
+}
+
+.sliderContainerFade .innerContainer img.invisible {
+    display: none;
+}
