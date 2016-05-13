@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="main">
+    <div class="success">
+      <div>Products were successfully bought</div>
+    </div>
+    
+    <div class="popup invis">
+      <div class="inner-popup">
+        <p>Are you sure you want to delete this product?</p>
+        <div class="popup-btn ok-btn">OK</div>
+        <div class="popup-btn cancel-btn">Cancel</div>
+      </div>
+    </div>
+
+    <div class="header-container"></div>
+    <div class="content"></div>
+    <div class="footer">
+      <div class="btn-buy"><span>+</span><span>Buy</span></div>
+    </div>
+  </div>
+
+  <template id="templateHeader">
+    <div class="header">
+      <div><span> {{year}} {{make}} {{model}} {{name}} {{option}}</span></div>
+    </div>
+  </template>
+
+  <template id="templateContent">
+    <div class="container">
+      <div class="error-container"></div>
+      <span class='remove-item'>&times</span>
+      <div class="foto">
+        <img src={{imgUrl}} alt="image">
+      </div>
+      <div class="info">
+        <h3>{{pName}}</h3>
+        <span>Product#</span><span class="info-sku">{{pSku}}</span>
+        <p>
+          <label for="vehicle">Vehicle:</label><span id="vehicle"> {{vehicle.year}} {{vehicle.make}} {{vehicle.model}} {{vehicle.name}} {{vehicle.option}}</span></br>
+          <label for="size-style">Size/Style:</label><span id="size-style"> {{sizeStyle}}</span>
+        </p>
+        <p>
+          <label for="qty">QTY:</label><input type="text" class="qty" id="qty" value={{pQuantity}}>
+          <span class="btn-update">Update</span>
+        </p>
+      </div>
+      <div class="count">
+        <p>
+          <span>$<span class="price">{{pPrice.toFixed(2)}}</span> each</span></br>
+          <label for="total">TOTAL: </label>
+          <span id="total">
+            <span>$<span class="total-quantity">{{(pQuantity*pPrice).toFixed(2)}}</span><sup>*</sup></span>
+            <span class="count-comment">(before taxes & fees)</span>
+          </span>
+        </p>      	
+      </div>
+    </div>
+  </template>
+
+  <template id="templateError">
+    <div class="message">
+      <div class="message-inner">
+        <div><img src="warning.png" alt=""></div>
+        <div><span>{{message}}</span></div>
+      </div>
+    </div>
+  </template>
+  
+
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
