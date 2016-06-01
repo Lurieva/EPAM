@@ -1,0 +1,43 @@
+.menu-vertical {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.menu-vertical .mainmenu, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-vertical .mainmenu a {
+    display: block;
+    background-color: #CCC;
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+}
+
+.menu-vertical .mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+.menu-vertical .submenu a {
+    background-color: #999;
+}
+
+.menu-vertical .submenu a:hover {
+    background-color: #666;
+}
+
+.menu-vertical .submenu li {
+    border-bottom: 1px solid #C5C5C5;
+}
+
+.menu-vertical .submenu {
+    display: none;
+    -webkit-transition: all 0.7s ease-out;
+}
+
+.menu-vertical .submenu.show {
+    display: block;
+}

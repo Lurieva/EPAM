@@ -1,0 +1,47 @@
+.menu-horizontal ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    position: relative;
+}
+
+.menu-horizontal li {
+    float: left;
+    height: 30px;
+    margin: 5px;
+    color: #FF0000;
+}
+
+.menu-horizontal .mainmenu a {
+    background-color: #CCC;
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+    display: block;
+}
+
+.menu-horizontal .submenu {
+    -webkit-transition: all 0.5s ease-out;
+    color: #FF0000;
+    display: none;
+    position: absolute;
+    width: auto;
+    left: 0px;
+    margin-top: 20px;
+}
+
+.menu-horizontal .mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+.menu-horizontal .submenu a {
+    background-color: #999;
+}
+
+.menu-horizontal .submenu a:hover {
+    background-color: #666;
+}
+
+.menu-horizontal .submenu.show {
+    display: block;
+}
