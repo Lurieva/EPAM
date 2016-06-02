@@ -12,8 +12,8 @@ var Controller = (function () {
                 horizontalMenu,
                 gallery,
                 footer,
-                containerHM = document.querySelector('.menu-horizontal'),
-                containerVM = document.querySelector('.menu-vertical'),
+                containerHM = document.querySelector('.header .menu'),
+                containerVM = document.querySelector('.content-right .menu'),
                 containerImg = document.querySelector('.gallery'),
                 containerFooter = document.querySelector('.footer');
 
