@@ -1,7 +1,8 @@
 'use strict';
 var FooterView = (function () {
-    function FooterView () {
-        this.parentEl = document.querySelector('.footer');
+
+    function FooterView (parent) {
+        this.parentEl = parent;
         return this;
     }
 
@@ -9,12 +10,14 @@ var FooterView = (function () {
         init: function () {
             this.render();
         },
+        
         render: function () {
             var el = document.createElement('div');
             el.innerHTML += footerData;
             this.parentEl.innerHTML = el.innerHTML;
         }
-    }
+    };
 
     return FooterView;
+    
 })();

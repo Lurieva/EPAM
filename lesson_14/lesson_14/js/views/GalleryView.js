@@ -1,28 +1,32 @@
 'use strict';
 
 var GalleryView = (function () {
-    function GalleryView () {
-        this.parentEl = document.querySelector('.gallery');
+    
+    function GalleryView (parent) {
+        this.parentEl = parent;
         return this;
     }
 
     GalleryView.prototype = {
         init : function (img) {
-            this.parentEl.innerHTML = imageTpl;
             this.render(img);
             this.addListeners();
         },
+
         render : function (img) {
             if (!img) {
                 return;
             }
+            this.parentEl.innerHTML = imageTpl;
             this.parentEl.querySelector('.title').innerHTML = img.title;
             this.parentEl.querySelector('.gallery img').src = img.src;
         },
+
         renderTitle : function (img) {
             if (!img) return;
             this.parentEl.querySelector('.title').innerHTML = img.title;
         },
+
         addListeners : function () {
             mediator.subscribe('changeImg', function (obj) {
                 this.render(obj);
@@ -32,7 +36,8 @@ var GalleryView = (function () {
                 this.renderTitle(obj);
             }.bind(this));
         }
-    }
+    };
 
     return GalleryView;
+
 })();
