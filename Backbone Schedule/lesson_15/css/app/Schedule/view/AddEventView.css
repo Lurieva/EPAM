@@ -1,0 +1,18 @@
+form {
+    width: 100%;
+}
+
+form span {
+    width: 100px;
+    display: inline-block;
+    color: #000080;
+}
+
+form legend {
+    color: #000080;
+    font-weight: bold;
+}
+
+form button {
+    float: right;
+}
