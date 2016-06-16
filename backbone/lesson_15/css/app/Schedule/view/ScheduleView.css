@@ -50,8 +50,9 @@
 }
 
 .schedule-table {
-    table-layout: fixed;
-    width: 100%;
+    margin: 0 auto;
+    table-layout: fixed;/*
+    width: 100%;*/
 }
 
 .schedule-table > thead > tr > th {
@@ -70,7 +71,12 @@ td {
     padding: 3px;
 }
 
-td,
-th {
+.schedule-table td,
+.schedule-table th {
     text-align: center;
+    min-width: 120px;
+}
+
+.schedule-table td {
+    position: relative;
 }

@@ -13,7 +13,6 @@
                     position: 'absolute',
                     top: settings.top,
                     left: settings.left,
-                    width: settings.width,
                     height: settings.height
                 })
                 .addClass('event');

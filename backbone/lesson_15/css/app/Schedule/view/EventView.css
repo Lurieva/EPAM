@@ -28,4 +28,7 @@
 
 .event {
     background: #FFF0F5;
+    width: 114px;
+    margin-left: 3px;
+    box-sizing: border-box;
 }

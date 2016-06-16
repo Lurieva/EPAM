@@ -6,7 +6,7 @@ templates.scheduleViewTpl = _.template([
             '<thead>',
                 '<th class="schedule-bordered"></th>',
                     '<% for (var j = 0; j < width - 1; j++) { %>',
-                        '<th class="schedule-bordered" data-width="0">',
+                        '<th class="schedule-bordered" data-width="1">',
                             '<%= start.format(\'ddd, MMM D\') %>',
                         '</th>',
                         '<% start.add(1, \'d\'); %>',
