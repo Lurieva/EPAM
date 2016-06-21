@@ -51,8 +51,7 @@
 
 .schedule-table {
     margin: 0 auto;
-    table-layout: fixed;/*
-    width: 100%;*/
+    table-layout: fixed;
 }
 
 .schedule-table > thead > tr > th {
@@ -62,8 +61,10 @@
     font-weight: bold;
 }
 
-.schedule-table > tbody > tr:nth-child(odd) {
+
+.schedule-table > tbody > tr:nth-child(4n+1) {
     background-color: #d9edf7;
+    font-weight: bold;
 }
 
 td {

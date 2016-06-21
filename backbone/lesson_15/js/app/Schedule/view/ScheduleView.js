@@ -15,7 +15,7 @@
 
             this.$el.empty().append(this.template({
                 width: 8,
-                height: 26,
+                height: 54,
                 start: this.weekStart
             }));
 
@@ -31,24 +31,21 @@
             return this;
         },
         getCellsCol: function (time1, time2) {
-            var duration,
-                fraction,
-                colCells = 0;
+            var colCells;
 
-            duration = parseFloat(time2) - parseFloat(time1);
-            fraction = (this.getDecimal(time2.replace(':','.'))) - this.getDecimal((time1.replace(':','.')));
-            colCells = duration * 2 + (fraction.toFixed(2) == 0.3 ? 1 : 0) - (fraction.toFixed(2) == -0.3 ? 1 : 0);
-
+            colCells = this.parseTime(time2) - this.parseTime(time1);
             return colCells;
         },
-        getDecimal: function (num) {
-            return num > 0 ? num - Math.floor(num) : Math.ceil(num) - num;
+        parseTime: function (time) {
+            var arrTime = time.split(':');
+
+            return parseInt(arrTime[0], 10) * 4 + parseInt(arrTime[1], 10) / 15;
         },
         remakeSchedule: function (item, i) {
             var eventView,
                 el,
                 col,
-                width = 120,
+                WIDTH = 120,
                 count,
                 settingEvent;
 
@@ -56,7 +53,7 @@
                 el = $("td[data-time='" + item.formFromTime() +"']");
                 col = $('th')[el.index()];
                 count = $(col).data('width');
-                $(col).css({minWidth: width * count});
+                $(col).css({minWidth: WIDTH * count});
                 if (this.remake_count === 0) {
                     this.remake_count = count - 1;
                 } else {
@@ -64,7 +61,7 @@
                 }
                 settingEvent = {
                     top : 0,
-                    left: function () {if (el.position()) return this.remake_count * width}.bind(this),
+                    left: function () {if (el.position()) return this.remake_count * WIDTH}.bind(this),
                     height : el.outerHeight()*this.getCellsCol(item.get('from'), item.get('to'))
                 };
 
@@ -106,7 +103,7 @@
                         for (var j = 1; j < obj[item].length; j += 1) {
                             from1 = obj[item][j].get('from');
                             to1 = obj[item][j].get('to');
-                            if (from1 < to && from1 >= from) {
+                            if (from1 < to && from1 >= from || from >= from1 && from < to1) {
                                 count += 1;
                             }
                         }
