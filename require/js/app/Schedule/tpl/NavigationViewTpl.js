@@ -1,4 +1,5 @@
-templates.navigationViewTpl = _.template([
+define([], function () {
+  return _.template([
     '<div>',
         '<ul class="pager">',
             '<li class="previous"><a href="#">&#9668 Previous</a></li>',
@@ -7,3 +8,4 @@ templates.navigationViewTpl = _.template([
         '</ul>',
     '</div>'
 ].join(''));
+});
