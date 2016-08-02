@@ -1,6 +1,4 @@
-define(
-    'Controller',
-    ['backbone', 'jquery'],
+define(['backbone', 'jquery'],
     function (Backbone, $) {
       var Controller = function () {
           var $event = $('#event-container'),
@@ -11,7 +9,7 @@ define(
           start();
 
           function start () {
-              setupMediator();
+            //  setupMediator();
               render();
           }
 

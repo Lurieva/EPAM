@@ -1,6 +1,4 @@
-define(
-  'Event',
-  ['backbone'],
+define(['backbone'],
   function (Backbone) {
      var Event = Backbone.Model.extend({
         url: '/',
