@@ -1,4 +1,5 @@
-templates.eventTpl = _.template([
+define(['underscore'], function (_) {
+  return_.template([
     '<div class="myPanel myPanel-primary">',
         '<div class="myPanel-heading">',
             '<%= title%>',
@@ -11,3 +12,4 @@ templates.eventTpl = _.template([
          '</div>',
     '</div>'
 ].join(''));
+]);

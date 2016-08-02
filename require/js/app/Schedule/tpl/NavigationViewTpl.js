@@ -1,4 +1,4 @@
-define([], function () {
+define(['underscore'], function (_) {
   return _.template([
     '<div>',
         '<ul class="pager">',

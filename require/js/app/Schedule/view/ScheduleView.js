@@ -7,7 +7,7 @@ define(['backbone', 'jquery', 'app/Schedule/tpl/ScheduleViewTpl', 'lib/moment.mi
             $('table').resize(this.remakeSchedule.bind(this));
             this.remake_count = 0;
         },
-        render: function(weekStart) {
+        render: function(weekStart, collection) {
             var start, end, events;
 
             if (weekStart) {

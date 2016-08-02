@@ -1,7 +1,7 @@
-'use strict';
-(function (This) {
-    This.EventView = Backbone.View.extend({
-        template: templates.eventTpl,
+efine(['backbone', 'jquery', 'app/Schedule/tpl/EventViewTpl'],
+    function (Backbone, $, tpl, EventView) {
+      EventView = Backbone.View.extend({
+        template: tpl,
         events: {
             'dblclick': 'edit',
             'click .close' : 'remove'
@@ -27,4 +27,4 @@
             cs.mediator.publish('add');
         }
     });
-})(App.Schedule);
+});

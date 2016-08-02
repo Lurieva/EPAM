@@ -1,4 +1,5 @@
-templates.editEventViewTpl = _.template([
+define(['underscore'], function (_) {
+  return _.template([
     '<div>',
         '<form id="form-edit">',
             '<fieldset>',
@@ -15,3 +16,4 @@ templates.editEventViewTpl = _.template([
         '</form>',
     '</div>'
 ].join(''));
+});

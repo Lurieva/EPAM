@@ -11,18 +11,17 @@ define(['backbone', 'jquery', 'app/Schedule/tpl/NavigationViewTpl'],
               this.render();
           },
           render: function() {
-            console.log(this.template)
               this.$el.html(this.template());
               return this;
           },
           showNext: function () {
-              cs.mediator.publish('showNext');
+              mediator.publish('showNext');
           },
           showPrevious: function () {
-              cs.mediator.publish('showPrevious');
+              mediator.publish('showPrevious');
           },
           showCurrent: function () {
-              cs.mediator.publish('showCurrent');
+              mediator.publish('showCurrent');
           }
       });
     }

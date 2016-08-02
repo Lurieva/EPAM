@@ -1,5 +1,8 @@
-define(['backbone', 'jquery', 'app/Schedule/view/NavigationView', 'app/Schedule/view/ScheduleView', 'lib/moment.min'],
-    function (Backbone, $, NavigationView, ScheduleView, moment) {
+define(['backbone', 'jquery', 'app/Schedule/view/NavigationView',
+        'app/Schedule/view/ScheduleView', 'lib/moment.min',
+        'app/Schedule/view/AddEventView', 'app/Schedule/view/EditEventView'],
+    function (Backbone, $, NavigationView, ScheduleView, moment,
+              AddEventView, EditEventView) {
       var Controller = function (events) {
           var $event = $('#event-container'),
               $nav = $('.nav-container'),
@@ -9,30 +12,30 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView', 'app/Schedule/
           start(this.collection);
 
           function start (collection) {
-            //  setupMediator();
+              setupMediator();
               render(collection);
           }
 
           function setupMediator () {
-              cs.mediator.subscribe('showPrevious', showPreviousWeek);
-              cs.mediator.subscribe('showCurrent', showCurrentWeek);
-              cs.mediator.subscribe('showNext', showNextWeek);
-              cs.mediator.subscribe('add', renderAddEventView);
-              cs.mediator.subscribe('edit', renderEditEventView);
+              mediator.subscribe('showPrevious', showPreviousWeek);
+              mediator.subscribe('showCurrent', showCurrentWeek);
+              mediator.subscribe('showNext', showNextWeek);
+              mediator.subscribe('add', renderAddEventView);
+              mediator.subscribe('edit', renderEditEventView);
           }
 
-          function renderAddEventView () {
-              var addEventView = new This.AddEventView();
+          function renderAddEventView (collection) {
+              var addEventView = new AddEventView(collection);
               $event.empty().append(addEventView.render().el);
           }
 
           function renderEditEventView (model) {
-              var editEventView = new This.EditEventView();
+              var editEventView = new EditEventView();
               $event.empty().append(editEventView.render(model).el);
           }
 
           function showPreviousWeek () {
-              var scheduleView = new This.ScheduleView();
+              var scheduleView = new ScheduleView();
               $schedule.empty().append(scheduleView.render(scheduleView.weekStart.subtract(7, 'd')).el);
           }
 
@@ -42,7 +45,7 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView', 'app/Schedule/
           }
 
           function showNextWeek () {
-              var scheduleView = new This.ScheduleView();
+              var scheduleView = new ScheduleView();
               $schedule.empty().append(scheduleView.render(scheduleView.weekStart.add(7, 'd')).el);
           }
 
@@ -53,7 +56,7 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView', 'app/Schedule/
               $nav.append(navView.render().el);
 
               showCurrentWeek(collection);
-            //  renderAddEventView();
+              renderAddEventView(collection);
           }
       }
       return Controller;

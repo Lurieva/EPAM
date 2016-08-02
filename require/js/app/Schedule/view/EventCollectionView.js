@@ -1,6 +1,6 @@
-'use strict';
-(function (This) {
-    This.EventsView = Backbone.View.extend({
+define(['backbone', 'jquery', 'app/Schedule/view/EventView'],
+    function (Backbone, $, EventView) {
+    return EventsView = Backbone.View.extend({
         el: '#event-container',
         initialize: function() {
             this.render();
@@ -9,11 +9,10 @@
             this.$el.empty();
 
             this.collection.each(function(model) {
-                this.$el.append(new This.EventView({
+                this.$el.append(new EventView({
                     model: model
                 }).render().el);
             }, this);
         }
-
     });
-})(App.Schedule);
+});

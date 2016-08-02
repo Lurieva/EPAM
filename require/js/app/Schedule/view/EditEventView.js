@@ -1,7 +1,7 @@
-'use strict';
-(function (This) {
-    This.EditEventView = Backbone.View.extend({
-        template: templates.editEventViewTpl,
+define(['backbone', 'jquery', 'app/Schedule/tpl/EditEventViewTpl', '$UI'],
+    function (Backbone, $, tpl, $UI) {
+     return EditEventView = Backbone.View.extend({
+        template: tpl,
         events: {
             'click .save': 'updateEvent',
             'click .cancel' : 'cancelEvent',
@@ -43,7 +43,7 @@
 
             this.model.set(this.setAttributesEvent());
             this.model.save();
-            
+
             this.hideView();
         },
         cancelEvent: function () {
@@ -60,4 +60,4 @@
             cs.mediator.publish('showCurrent');
         }
     });
-})(App.Schedule);
+});
