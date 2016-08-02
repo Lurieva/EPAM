@@ -1,16 +1,17 @@
 define(['backbone', 'jquery'],
     function (Backbone, $) {
-      var Controller = function () {
+      var Controller = function (events) {
           var $event = $('#event-container'),
               $nav = $('.nav-container'),
               $schedule = $('.content-container');
-          this.collection = collections.events;
+          this.collection = events;
 
           start();
 
           function start () {
             //  setupMediator();
-              render();
+            //  render();
+              console.log(1)
           }
 
           function setupMediator () {

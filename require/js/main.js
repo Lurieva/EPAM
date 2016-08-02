@@ -39,7 +39,8 @@ require(
 
           function main () {
               //cs.mediator = new Mediator();
-              cs.schedule = new Controller();
+              console.log(collections.events)
+              cs.schedule = new Controller(collections.events);
           }
     });
   }
