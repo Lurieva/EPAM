@@ -1,17 +1,16 @@
-define(['backbone', 'jquery', 'app/Schedule/view/NavigationView'],
-    function (Backbone, $, NavigationView) {
+define(['backbone', 'jquery', 'app/Schedule/view/NavigationView', 'app/Schedule/view/ScheduleView', 'lib/moment.min'],
+    function (Backbone, $, NavigationView, ScheduleView, moment) {
       var Controller = function (events) {
           var $event = $('#event-container'),
               $nav = $('.nav-container'),
               $schedule = $('.content-container');
           this.collection = events;
 
-          start();
+          start(this.collection);
 
-          function start () {
+          function start (collection) {
             //  setupMediator();
-              render();
-              console.log(1)
+              render(collection);
           }
 
           function setupMediator () {
@@ -37,9 +36,9 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView'],
               $schedule.empty().append(scheduleView.render(scheduleView.weekStart.subtract(7, 'd')).el);
           }
 
-          function showCurrentWeek () {
-              var scheduleView = new App.Schedule.ScheduleView();
-              $schedule.empty().append(scheduleView.render(moment().day('Monday')).el);
+          function showCurrentWeek (collection) {
+              var scheduleView = new ScheduleView();
+              $schedule.empty().append(scheduleView.render(moment().day('Monday'), collection).el);
           }
 
           function showNextWeek () {
@@ -47,13 +46,13 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView'],
               $schedule.empty().append(scheduleView.render(scheduleView.weekStart.add(7, 'd')).el);
           }
 
-          function render (){
+          function render (collection) {
               var navView;
 
               navView = new NavigationView();
               $nav.append(navView.render().el);
 
-              //showCurrentWeek();
+              showCurrentWeek(collection);
             //  renderAddEventView();
           }
       }

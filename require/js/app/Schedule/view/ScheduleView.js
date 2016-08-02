@@ -1,6 +1,7 @@
-(function (This) {
-    This.ScheduleView = Backbone.View.extend({
-        template: templates.scheduleViewTpl,
+define(['backbone', 'jquery', 'app/Schedule/tpl/ScheduleViewTpl', 'lib/moment.min'],
+    function (Backbone, $, tpl, moment) {
+    return ScheduleView = Backbone.View.extend({
+        template: tpl,
         weekStart: moment().day('Monday'),
         initialize: function () {
             $('table').resize(this.remakeSchedule.bind(this));
@@ -22,7 +23,7 @@
             start = this.weekStart.format('YYYY-MM-DD');
             end = this.weekStart.add(6, 'd').format('YYYY-MM-DD');
 
-            events = collections.events.filtered(start, end);
+            events = collection.filtered(start, end);
 
             this.changeAttributesCol(events);
 
@@ -115,4 +116,4 @@
             }.bind(this),0);
         }
     });
-})(App.Schedule);
+});
