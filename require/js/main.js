@@ -1,6 +1,7 @@
 requirejs.config({
     paths: {
-        jquery: 'https://code.jquery.com/jquery-2.2.4.min',
+        jquery: 'lib/jquery',//'https://code.jquery.com/jquery-2.2.4.min',
+        mediator: 'lib/mediator.min',
         underscore: 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min',
         backbone: 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min',
         'backbone.localStorage': 'https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage',
@@ -23,10 +24,8 @@ requirejs.config({
 
 
 require(
-    ['backbone', 'app/Schedule/model/EventCollection', 'app/Schedule/Controller', 'lib/mediator.min'],
+    ['backbone', 'app/Schedule/model/EventCollection', 'app/Schedule/Controller', 'mediator'],
     function (backbone, EventCollection, Controller, Mediator){
-      var Mediator = require(['lib/mediator.min'])
-
       $(function () {
           var events = new EventCollection();
           events.fetch({
@@ -34,7 +33,7 @@ require(
           });
 
           function main () {
-              mediator = new Mediator();
+              //mediator = new Mediator();
               console.log(events)
               var schedule = new Controller(events);
           }

@@ -2,7 +2,7 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView',
         'app/Schedule/view/ScheduleView', 'lib/moment.min',
         'app/Schedule/view/AddEventView', 'app/Schedule/view/EditEventView'],
     function (Backbone, $, NavigationView, ScheduleView, moment,
-              AddEventView, EditEventView) {
+              AddEventView, EditEventView, Mediator) {
       var Controller = function (events) {
           var $event = $('#event-container'),
               $nav = $('.nav-container'),
@@ -12,7 +12,7 @@ define(['backbone', 'jquery', 'app/Schedule/view/NavigationView',
           start(this.collection);
 
           function start (collection) {
-              setupMediator();
+              //setupMediator();
               render(collection);
           }
 
