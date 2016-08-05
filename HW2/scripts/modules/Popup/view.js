@@ -15,10 +15,10 @@ define(function (require) {
             'click .cancel': 'close'
         },
         initialize: function () {
-            var widthPopup = 500;
+            var widthPopup = 550;
             $(this.el).css({
                 'width': widthPopup + 'px',
-                'height': '350px',
+                'height': '400px',
                 'top': '100px',
                 'left': ($(window).width() - widthPopup)/2 + 'px',
                 'position': 'absolute',

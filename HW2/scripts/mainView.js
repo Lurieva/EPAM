@@ -24,6 +24,7 @@ define(function (require) {
 
             $.get(url, function(data) {
                 model = new Model(data);
+                console.log(model.toJSON())
                 popup = new Popup();
                 $('body').append(popup.render(model).el);
             }.bind(this));

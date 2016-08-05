@@ -12,6 +12,18 @@
     <h2 class="tire-sidewall-additional-modal__heading-secondary">
       <span>STANDART SIZE</span>
     </h2>
+    <ul class="tire-sidewall-additional-modal__radio-list">
+      <li class="tire-sidewall-additional-modal__radio-item">
+        <input type="radio" checked="checked" value="{{TireSize}}">{{ TireSize}}
+      </li>
+    </ul>
+    {{#if TireSizeR}}
+    <ul class="tire-sidewall-additional-modal__radio-list">
+      <li class="tire-sidewall-additional-modal__radio-item">
+        <input type="radio" value="{{TireSizeR}}">{{ TireSizeR}}
+      </li>
+    </ul>
+    {{/if}}
   </div>
 
   <div class="tire-sidewall-additional-modal__grid-right">

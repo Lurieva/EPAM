@@ -8987,11 +8987,13 @@ to{-moz-transform:rotate(0);-ms-transform:rotate(0);-webkit-transform:rotate(0);
   margin: 0 auto;
   position: relative;
 }
+
 .wrapper {
   min-height: 400px;
   width: 80%;
   margin: 0 auto;
   position: relative;
+  min-width: 600px;
 }
 
 .main {
