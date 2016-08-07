@@ -11,7 +11,7 @@ define(function (require) {
         template: tpl,
         events: {
             'click .popup-close': 'close',
-            'click .findTiresPopup' : 'findTires',
+            'click .findTires' : 'findTires',
             'click .cancel': 'close'
         },
         initialize: function () {

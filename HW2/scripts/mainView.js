@@ -8,36 +8,36 @@ define(function (require) {
       SelectCollection     = require('modules/collection'),
       Popup                = require('modules/Popup/view'),
       Model                = require('modules/model'),
-      tpl                  = require('hbs!tpl');
+      tpl                  = require('hbs!templates/tpl');
 
   return Backbone.View.extend({
-        el: $('.wrapper'),
+        el: $('.container'),
         template: tpl,
         events: {
             'click .findTires' : 'find'
         },
         url: '',
         find: function () {
-            var url = this.selectView.find(),
+            var url = $('.findTires').data('url'),
                 model,
                 popup;
 
             $.get(url, function(data) {
                 model = new Model(data);
-                console.log(model.toJSON())
                 popup = new Popup();
                 $('body').append(popup.render(model).el);
             }.bind(this));
 
         },
         initialize: function () {
-          //this.render();
+          this.render();
           this.renderViews();
         },
         renderViews: function () {
-            var selectBoxCollection = new SelectCollection(SelectList);
-                this.selectView = new SelectViewCollection(selectBoxCollection);
+            var el = $('.main-wrapper'),
+                selectBoxCollection = new SelectCollection(SelectList);
 
+            this.selectView = new SelectViewCollection(el, selectBoxCollection);
         },
         render: function () {
             this.$el.html(this.template());
